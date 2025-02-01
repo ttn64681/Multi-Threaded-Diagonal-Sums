@@ -1,0 +1,12 @@
+compile:
+	gcc -Wall -pedantic-errors proj4.c -g -c -pthread
+	gcc -Wall -pedantic-errors main.c -g -c
+	gcc -Wall -pedantic-errors main.o proj4.o -g -o proj4.out -pthread
+
+run:
+	./proj4.out in5.txt out5.txt 1222 3; diff out5.txt correctOut5.txt | wc -c;
+
+clean:
+	rm *.out
+	rm *.o
+
